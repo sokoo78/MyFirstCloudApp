@@ -50,11 +50,11 @@ namespace MyFirstCloudApp
             try
             {
                 messageId = await publisher.PublishAsync(message);
-                Console.WriteLine($" => Publishing succeed. (Message: ({messageId}){message}");
+                Console.WriteLine($" => Publishing succeed. (Message: ({messageId}) {message}");
             }
             catch (Exception e)
             {
-                Console.WriteLine($" => Publishing failed.");
+                Console.WriteLine($" => Publishing failed. Error: {e.Message}");
             }
             await publisher.ShutdownAsync(TimeSpan.FromSeconds(15));
             return messageId;
